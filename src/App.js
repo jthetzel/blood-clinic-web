@@ -7,6 +7,7 @@ import logo from './logo.svg'
 import './App.css'
 import { clinics } from './Constants'
 import ClinicMarker from './components/ClinicMarker'
+import ClinicDrawer from './components/ClinicDrawer'
 
 injectTapEventPlugin()
 
@@ -36,6 +37,7 @@ class App extends Component {
           >
           {clinicMarkers}
         </GoogleMapReact>
+        <ClinicDrawer clinics={clinics} />
       </div>
       </MuiThemeProvider>
     )
