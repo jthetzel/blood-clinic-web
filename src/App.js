@@ -8,6 +8,7 @@ import ClinicMarker from './components/ClinicMarker'
 const clinicMarkers = clinics.map((marker, index) => (
   <ClinicMarker
     key={index}
+    id={marker.id}
     lat={marker.lat}
     lng={marker.lng}
     text={marker.name}
