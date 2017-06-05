@@ -2,13 +2,22 @@ import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 import logo from './logo.svg'
 import './App.css'
+import { clinics } from './Constants'
+import ClinicMarker from './components/ClinicMarker'
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>
+const clinicMarkers = clinics.map((marker, index) => (
+  <ClinicMarker
+    key={index}
+    lat={marker.lat}
+    lng={marker.lng}
+    text={marker.name}
+    />
+))
 
 class App extends Component {
   static defaultProps = {
-    center: {lat: 59.95, lng: 30.33},
-    zoom: 9
+    center: {lat: 47.5615, lng: -52.7126},
+    zoom: 13
   }
   render () {
     return (
@@ -18,11 +27,7 @@ class App extends Component {
           center={this.props.center}
           zoom={this.props.zoom}
           >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}
-            />
+          {clinicMarkers}
         </GoogleMapReact>
       </div>
     )
