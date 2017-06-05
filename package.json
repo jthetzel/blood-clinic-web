@@ -6,6 +6,7 @@
     "google-map-react": "^0.24.0",
     "point-geometry": "^0.1.0",
     "react": "^15.5.4",
+    "react-controllable": "^0.1.1",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
