@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
+import controllable from 'react-controllables'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import logo from './logo.svg'
 import './App.css'
 import { clinics } from './Constants'
 import ClinicMarker from './components/ClinicMarker'
+
+injectTapEventPlugin()
 
 const clinicMarkers = clinics.map((marker, index) => (
   <ClinicMarker
@@ -22,6 +27,7 @@ class App extends Component {
   }
   render () {
     return (
+      <MuiThemeProvider>
       <div style={{height: '1000px'}}>
         <GoogleMapReact
           bootstrapURLKeys={{key: 'AIzaSyBR2VYaIyFFuQr_rcBY5Jc4dm5E9lOSIjY'}}
@@ -31,8 +37,9 @@ class App extends Component {
           {clinicMarkers}
         </GoogleMapReact>
       </div>
+      </MuiThemeProvider>
     )
   }
 }
 
-export default App
+export default controllable(App, ['center', 'zoom', 'markers'])
