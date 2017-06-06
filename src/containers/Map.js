@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import GoogleMapReact from 'google-map-react'
 import controllable from 'react-controllables'
-// import { clinics } from '../Constants'
 import ClinicMarker from '../components/ClinicMarker'
 import ClinicDrawer from '../components/ClinicDrawer'
-import fetchClinics from '../api/fetchClinics'
+import ClinicModal from '../components/ClinicModal'
 import CounterActions from '../redux/counterRedux'
 import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
@@ -17,17 +16,18 @@ class Map extends Component {
   }
 
   componentWillMount () {
-    // const response = fetchClinics()
     this.props.updateRequested()
   }
 
   render () {
     const {
       clinicSelected,
+      clinicDeselected,
       increment,
       changeZoom,
       changeCenter,
-      clinics
+      clinics,
+      modalOpen
     } = this.props
 
     const clinicMarkers = clinics.map((marker, index) => (
@@ -54,6 +54,10 @@ class Map extends Component {
           clinics={clinics}
           onClick={clinicSelected}
           />
+        <ClinicModal
+          open={modalOpen}
+          onRequestClose={clinicDeselected}
+          />
       </div>
     )
   }
@@ -63,7 +67,8 @@ const mapStateToProps = (state) => {
   return {
     center: state.map.center,
     zoom: state.map.zoom,
-    clinics: state.clinic.clinics
+    clinics: state.clinic.clinics,
+    modalOpen: state.clinic.modalOpen
   }
 }
 
@@ -73,7 +78,8 @@ const mapDispatchToProps = (dispatch) => {
     changeZoom: (level) => dispatch(MapActions.changeZoom(level)),
     changeCenter: (center) => dispatch(MapActions.changeCenter(center)),
     updateRequested: () => dispatch(ClinicActions.updateRequested()),
-    clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id))
+    clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id)),
+    clinicDeselected: () => dispatch(ClinicActions.clinicDeselected())
   }
 }
 
