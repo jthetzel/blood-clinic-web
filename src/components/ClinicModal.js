@@ -1,7 +1,7 @@
-import React from 'react';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+import DayChart from '../charts/DayChart'
 
 /**
  * Dialog with action buttons. The actions are passed in as an array of React objects,
@@ -23,8 +23,8 @@ class ClinicModal extends React.Component {
         primary
         keyboardFocused
         onTouchTap={onRequestClose}
-      />,
-    ];
+      />
+    ]
 
     return (
       <Dialog
@@ -33,7 +33,8 @@ class ClinicModal extends React.Component {
         modal={false}
         open={open}
         onRequestClose={onRequestClose}
-      >
+        >
+        <DayChart />
         The actions in this window were passed in as an array of React objects.
       </Dialog>
     )
