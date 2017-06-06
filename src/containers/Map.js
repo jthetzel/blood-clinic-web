@@ -8,6 +8,7 @@ import ClinicModal from '../components/ClinicModal'
 import CounterActions from '../redux/counterRedux'
 import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
+import fetchClinics from '../api/fetchClinics'
 
 class Map extends Component {
   static defaultProps = {
@@ -16,6 +17,7 @@ class Map extends Component {
   }
 
   componentWillMount () {
+    fetchClinics()
     this.props.updateRequested()
   }
 

@@ -37,4 +37,4 @@ export const clinics = [
   }
 ]
 
-export const apiHost = 'https://bloodclinicserver.herokuapp.com/api'
+export const apiHost = 'https://bloodclinicserver.herokuapp.com/apiv2'

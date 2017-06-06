@@ -3,7 +3,7 @@ const {fetch,  Headers} = require('fetch-ponyfill')()
 
 const fetchClinics = () => {
   const uri = apiHost
-  const date = new Date()
+  const date = new Date('2017-06-06T12:30:25.326Z')
   const payload = {'date': date}
   const headers = new Headers({'Content-Type': 'application/json'})
   fetch(uri, {
