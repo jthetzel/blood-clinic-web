@@ -8,5 +8,6 @@ export const rootEpic = combineEpics({
 
 export const rootReducer = combineReducers({
   counter: require('./counterRedux').reducer,
-  map: require('./mapRedux').reducer
+  map: require('./mapRedux').reducer,
+  clinic: require('./clinicRedux').reducer
 })

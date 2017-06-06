@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import GoogleMapReact from 'google-map-react'
 import controllable from 'react-controllables'
-import { clinics } from '../Constants'
+// import { clinics } from '../Constants'
 import ClinicMarker from '../components/ClinicMarker'
 import ClinicDrawer from '../components/ClinicDrawer'
 import fetchClinics from '../api/fetchClinics'
@@ -20,7 +20,7 @@ class Map extends Component {
   }
 
   render () {
-    const { increment, changeZoom, changeCenter } = this.props
+    const { increment, changeZoom, changeCenter, clinics } = this.props
 
     const clinicMarkers = clinics.map((marker, index) => (
       <ClinicMarker
@@ -54,7 +54,8 @@ class Map extends Component {
 const mapStateToProps = (state) => {
   return {
     center: state.map.center,
-    zoom: state.map.zoom
+    zoom: state.map.zoom,
+    clinics: state.clinic.clinics
   }
 }
 
