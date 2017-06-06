@@ -19,7 +19,7 @@ const style = {
   }
 }
 
-const ClinicMarker = ({ text }) => (
+const ClinicMarker = ({ text, onClick }) => (
   <div>
     <Paper
       style={style.paper}
@@ -29,6 +29,7 @@ const ClinicMarker = ({ text }) => (
       <IconButton
         tooltip={text}
         style={style.icon}
+        onTouchTap={() => onClick(text)}
         >
         <ClinicIcon
           color='red'
