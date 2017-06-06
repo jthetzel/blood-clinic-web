@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { combineEpics } from 'redux-observable'
-import pingEpic from './pingEpic'
+import { fetchUserEpic } from './clinicEpic'
 
-export const rootEpic = combineEpics({
-  pingEpic
-})
+export const rootEpic = combineEpics(
+  fetchUserEpic
+)
 
 export const rootReducer = combineReducers({
   counter: require('./counterRedux').reducer,
