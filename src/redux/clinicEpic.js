@@ -22,11 +22,3 @@ export const updateClinicEpic = action$ =>
                 })
                 .map(response => updateFulfilled(response.response))
                )
-
-// openModalEpic
-const CLINIC_SELECTED = ClinicTypes.CLINIC_SELECTED
-const OPEN_MODAL = ClinicTypes.OPEN_MODAL
-export const openModal = () => ({ type: OPEN_MODAL })
-export const openModalEpic = action$ =>
-  action$.ofType(CLINIC_SELECTED)
-  .mergeMap(() => updateFulfilled())
