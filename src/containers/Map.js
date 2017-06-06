@@ -23,12 +23,16 @@ class Map extends Component {
     const {
       clinicSelected,
       clinicDeselected,
+      currentRate,
       increment,
       changeZoom,
       changeCenter,
+      selected,
       clinics,
       modalOpen
     } = this.props
+
+    const clinic = clinics.find(clinic => clinic.id === selected)
 
     const clinicMarkers = clinics.map((marker, index) => (
       <ClinicMarker
@@ -52,6 +56,7 @@ class Map extends Component {
         </GoogleMapReact>
         <ClinicDrawer
           clinics={clinics}
+          currentRate={currentRate}
           onClick={clinicSelected}
           />
         <ClinicModal
@@ -67,8 +72,10 @@ const mapStateToProps = (state) => {
   return {
     center: state.map.center,
     zoom: state.map.zoom,
+    selected: state.clinic.selected,
     clinics: state.clinic.clinics,
-    modalOpen: state.clinic.modalOpen
+    modalOpen: state.clinic.modalOpen,
+    currentRate: state.clinic.currentRate
   }
 }
 
