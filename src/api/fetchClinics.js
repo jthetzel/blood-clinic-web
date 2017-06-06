@@ -1,5 +1,8 @@
+// note: this is deprecated and persists for debugging.
+// API requests are handled in epics within the redux directory
+
 import { apiHost } from '../Constants'
-const {fetch,  Headers} = require('fetch-ponyfill')()
+const {fetch, Headers} = require('fetch-ponyfill')()
 
 const fetchClinics = () => {
   const uri = apiHost
