@@ -2,19 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { LineChart, Line } from 'recharts'
 
-const DayLineChart = ({ dailyRate, clinicSelected }) => {
-  if (!clinicSelected) {
+const DayLineChart = ({ dailyRate, selected }) => {
+  if (!selected) {
     return (
       <div />
     )
   }
   let data = []
-  dailyRate[clinicSelected].forEach(function (value, index) {
+  dailyRate[selected].forEach(function (value, index) {
     if (value) {
       data.push({hour: index, clinic: 'hs', rate: Number(value)})
     }
   })
-  console.log(clinicSelected)
+  console.log(selected)
   return (
     <LineChart width={400} height={400} data={data}>
       <Line
@@ -28,7 +28,7 @@ const DayLineChart = ({ dailyRate, clinicSelected }) => {
 
 const mapStateToProps = (state) => {
   return {
-    clinicSelected: state.clinic.clinicSelected,
+    selected: state.clinic.selected,
     dailyRate: state.clinic.dailyRate
   }
 }
