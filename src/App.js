@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import configureStore from './redux/configureStore'
 import GoogleMapReact from 'google-map-react'
 import controllable from 'react-controllables'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -9,6 +11,8 @@ import { clinics } from './Constants'
 import ClinicMarker from './components/ClinicMarker'
 import ClinicDrawer from './components/ClinicDrawer'
 import fetchClinics from './api/fetchClinics'
+
+const store = configureStore()
 
 // work around for material-ui tap events
 injectTapEventPlugin()
@@ -36,6 +40,7 @@ class App extends Component {
 
   render () {
     return (
+      <Provider store={store}>
       <MuiThemeProvider>
       <div style={{height: '1000px'}}>
         <GoogleMapReact
@@ -48,6 +53,7 @@ class App extends Component {
         <ClinicDrawer clinics={clinics} />
       </div>
       </MuiThemeProvider>
+      </Provider>
     )
   }
 }
