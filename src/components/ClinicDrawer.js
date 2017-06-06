@@ -2,7 +2,7 @@ import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 
-const ClinicDrawer = ({ clinics }) => (
+const ClinicDrawer = ({ clinics, onClick }) => (
   <Drawer
     open
     width={'25%'}
@@ -10,7 +10,12 @@ const ClinicDrawer = ({ clinics }) => (
     MetaClinic
     {clinics.map((clinic, index) => {
       return (
-        <MenuItem key={index}>{clinic.name}</MenuItem>
+        <MenuItem
+          key={index}
+          onTouchTap={() => onClick()}
+          >
+          {clinic.name}
+        </MenuItem>
       )
     })}
   </Drawer>

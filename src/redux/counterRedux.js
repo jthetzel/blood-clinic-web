@@ -20,6 +20,7 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 export const increment = (state, { data }) => {
+  console.log('increment')
   return state.merge({counter: state.counter + 1})
 }
 

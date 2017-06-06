@@ -16,10 +16,11 @@ class Map extends Component {
 
   componentWillMount () {
     const response = fetchClinics()
-
   }
 
   render () {
+    const { increment } = this.props
+
     const clinicMarkers = clinics.map((marker, index) => (
       <ClinicMarker
         key={index}
@@ -27,7 +28,7 @@ class Map extends Component {
         lat={marker.lat}
         lng={marker.lng}
         text={marker.name}
-        onClick={console.log}
+        onClick={increment}
         />
     ))
 
@@ -40,7 +41,10 @@ class Map extends Component {
           >
           {clinicMarkers}
         </GoogleMapReact>
-        <ClinicDrawer clinics={clinics} />
+        <ClinicDrawer
+          clinics={clinics}
+          onClick={increment}
+          />
       </div>
     )
   }
@@ -48,8 +52,8 @@ class Map extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increment: () => dispatch(CounterActions.increment())
+    increment: () => dispatch(CounterActions.counterIncrement())
   }
 }
 
-export default connect(null, mapDispatchToProps)(controllable(Map, ['center', 'zoom', 'markers']))
+export default connect(null, mapDispatchToProps)(Map)
