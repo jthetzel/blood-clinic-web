@@ -7,6 +7,7 @@ import ClinicMarker from '../components/ClinicMarker'
 import ClinicDrawer from '../components/ClinicDrawer'
 import fetchClinics from '../api/fetchClinics'
 import CounterActions from '../redux/counterRedux'
+import MapActions from '../redux/mapRedux'
 
 class Map extends Component {
   static defaultProps = {
@@ -19,7 +20,7 @@ class Map extends Component {
   }
 
   render () {
-    const { increment } = this.props
+    const { increment, changeZoom, changeCenter } = this.props
 
     const clinicMarkers = clinics.map((marker, index) => (
       <ClinicMarker
@@ -43,17 +44,26 @@ class Map extends Component {
         </GoogleMapReact>
         <ClinicDrawer
           clinics={clinics}
-          onClick={increment}
+          onClick={changeCenter}
           />
       </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    increment: () => dispatch(CounterActions.counterIncrement())
+    center: state.map.center,
+    zoom: state.map.zoom
   }
 }
 
-export default connect(null, mapDispatchToProps)(Map)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: () => dispatch(CounterActions.counterIncrement()),
+    changeZoom: (level) => dispatch(MapActions.changeZoom(level)),
+    changeCenter: (center) => dispatch(MapActions.changeCenter(center))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map)
