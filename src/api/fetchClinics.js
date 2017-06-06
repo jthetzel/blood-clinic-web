@@ -1,7 +1,8 @@
-const {fetch, Request, Response, Headers} = require('fetch-ponyfill')()
+import { apiHost } from '../Constants'
+const {fetch,  Headers} = require('fetch-ponyfill')()
 
 const fetchClinics = () => {
-  const uri = 'https://bloodclinicserver.herokuapp.com/api'
+  const uri = apiHost
   const date = new Date()
   const payload = {'date': date}
   const headers = new Headers({'Content-Type': 'application/json'})

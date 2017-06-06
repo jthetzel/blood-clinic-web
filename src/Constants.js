@@ -28,3 +28,5 @@ export const clinics = [
     image: 'https://bloodclinicserver.herokuapp.com/imgs/wf.jpg'
   }
 ]
+
+export const apiHost = 'https://bloodclinicserver.herokuapp.com/api'
