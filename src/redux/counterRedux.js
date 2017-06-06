@@ -28,7 +28,6 @@ export const decrement = (state, { data }) => {
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
-console.log(Types)
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.COUNTER_INCREMENT]: increment,
   [Types.COUNTER_DECREMENT]: decrement

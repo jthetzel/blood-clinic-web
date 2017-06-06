@@ -8,6 +8,7 @@ import ClinicDrawer from '../components/ClinicDrawer'
 import fetchClinics from '../api/fetchClinics'
 import CounterActions from '../redux/counterRedux'
 import MapActions from '../redux/mapRedux'
+import ClinicActions from '../redux/clinicRedux'
 
 class Map extends Component {
   static defaultProps = {
@@ -16,7 +17,8 @@ class Map extends Component {
   }
 
   componentWillMount () {
-    const response = fetchClinics()
+    // const response = fetchClinics()
+    this.props.updateRequested()
   }
 
   render () {
@@ -63,7 +65,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     increment: () => dispatch(CounterActions.counterIncrement()),
     changeZoom: (level) => dispatch(MapActions.changeZoom(level)),
-    changeCenter: (center) => dispatch(MapActions.changeCenter(center))
+    changeCenter: (center) => dispatch(MapActions.changeCenter(center)),
+    updateRequested: () => dispatch(ClinicActions.updateRequested())
   }
 }
 

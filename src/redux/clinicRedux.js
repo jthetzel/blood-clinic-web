@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
   updateCompleted: ['payload']
 })
 
-export const AnnotationsTypes = Types
+export const ClinicTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
@@ -28,12 +28,13 @@ export const updateRequested = (state, action) => {
 }
 
 export const updateCompleted = (state, { payload }) => {
-  const { current_rate, daily_rate } = payload
-  return state.merge({currentRate: current_rate, dailyRate: daily_rate})
+  console.log('update completed')
+  console.log(payload)
+  const { current_rate, daily_rates } = payload  
+  return state.merge({currentRate: current_rate, dailyRate: daily_rates})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
-console.log(Types)
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.UPDATE_REQUESTED]: updateRequested,
   [Types.UPDATE_COMPLETED]: updateCompleted
