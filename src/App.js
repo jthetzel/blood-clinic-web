@@ -8,7 +8,9 @@ import './App.css'
 import { clinics } from './Constants'
 import ClinicMarker from './components/ClinicMarker'
 import ClinicDrawer from './components/ClinicDrawer'
+import fetchClinics from './api/fetchClinics'
 
+// work around for material-ui tap events
 injectTapEventPlugin()
 
 const clinicMarkers = clinics.map((marker, index) => (
@@ -26,6 +28,12 @@ class App extends Component {
     center: {lat: 47.5615, lng: -52.7126},
     zoom: 13
   }
+
+  componentWillMount () {
+    const response = fetchClinics()
+
+  }
+
   render () {
     return (
       <MuiThemeProvider>
