@@ -12,7 +12,7 @@ const ClinicDrawer = ({ clinics, onClick }) => (
       return (
         <MenuItem
           key={index}
-          onTouchTap={() => onClick('mp')}
+          onTouchTap={() => onClick(clinic.id)}
           >
           {clinic.name}
         </MenuItem>

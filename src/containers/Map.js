@@ -37,7 +37,7 @@ class Map extends Component {
         lat={marker.lat}
         lng={marker.lng}
         text={marker.name}
-        onClick={increment}
+        onClick={clinicSelected}
         />
     ))
 
