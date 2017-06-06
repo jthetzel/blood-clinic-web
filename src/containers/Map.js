@@ -22,7 +22,13 @@ class Map extends Component {
   }
 
   render () {
-    const { increment, changeZoom, changeCenter, clinics } = this.props
+    const {
+      clinicSelected,
+      increment,
+      changeZoom,
+      changeCenter,
+      clinics
+    } = this.props
 
     const clinicMarkers = clinics.map((marker, index) => (
       <ClinicMarker
@@ -46,7 +52,7 @@ class Map extends Component {
         </GoogleMapReact>
         <ClinicDrawer
           clinics={clinics}
-          onClick={changeCenter}
+          onClick={clinicSelected}
           />
       </div>
     )
@@ -66,7 +72,8 @@ const mapDispatchToProps = (dispatch) => {
     increment: () => dispatch(CounterActions.counterIncrement()),
     changeZoom: (level) => dispatch(MapActions.changeZoom(level)),
     changeCenter: (center) => dispatch(MapActions.changeCenter(center)),
-    updateRequested: () => dispatch(ClinicActions.updateRequested())
+    updateRequested: () => dispatch(ClinicActions.updateRequested()),
+    clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id))
   }
 }
 

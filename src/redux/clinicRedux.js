@@ -6,7 +6,8 @@ import { clinics } from '../Constants'
 
 const { Types, Creators } = createActions({
   updateRequested: [],
-  updateCompleted: ['payload']
+  updateCompleted: ['payload'],
+  clinicSelected: ['id']
 })
 
 export const ClinicTypes = Types
@@ -18,7 +19,8 @@ export const INITIAL_STATE = Immutable({
   isLoaded: false,
   clinics: clinics,
   currentRate: {},
-  dailyRate: {}
+  dailyRate: {},
+  clinicSelected: null
 })
 
 /* ------------- Reducers ------------- */
@@ -28,14 +30,20 @@ export const updateRequested = (state, action) => {
 }
 
 export const updateCompleted = (state, { payload }) => {
-  console.log('update completed')
-  console.log(payload)
-  const { current_rate, daily_rates } = payload  
-  return state.merge({currentRate: current_rate, dailyRate: daily_rates})
+  const { current_rate, daily_rates } = payload
+  return state.merge({
+    currentRate: current_rate,
+    dailyRate: daily_rates,
+    isLoaded: true})
+}
+
+export const clinicSelected = (state, { id }) => {
+  return state.merge({clinicSelected: id})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.UPDATE_REQUESTED]: updateRequested,
-  [Types.UPDATE_COMPLETED]: updateCompleted
+  [Types.UPDATE_COMPLETED]: updateCompleted,
+  [Types.CLINIC_SELECTED]: clinicSelected
 })
