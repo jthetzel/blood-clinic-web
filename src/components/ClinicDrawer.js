@@ -12,7 +12,7 @@ const ClinicDrawer = ({ clinics, onClick }) => (
       return (
         <MenuItem
           key={index}
-          onTouchTap={() => onClick()}
+          onTouchTap={() => onClick({lat: 47.5615, lng: -52.7126})}
           >
           {clinic.name}
         </MenuItem>
