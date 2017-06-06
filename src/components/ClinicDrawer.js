@@ -3,7 +3,11 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 
 const ClinicDrawer = ({ clinics }) => (
-  <Drawer open>
+  <Drawer
+    open
+    width={'25%'}
+    >
+    MetaClinic
     {clinics.map((clinic, index) => {
       return (
         <MenuItem key={index}>{clinic.name}</MenuItem>
