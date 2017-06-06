@@ -5,7 +5,6 @@ import controllable from 'react-controllables'
 import ClinicMarker from '../components/ClinicMarker'
 import ClinicDrawer from '../components/ClinicDrawer'
 import ClinicModal from '../components/ClinicModal'
-import CounterActions from '../redux/counterRedux'
 import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
 import fetchClinics from '../api/fetchClinics'
@@ -26,7 +25,6 @@ class Map extends Component {
       clinicSelected,
       clinicDeselected,
       currentRate,
-      increment,
       changeZoom,
       changeCenter,
       selected,
@@ -84,7 +82,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increment: () => dispatch(CounterActions.counterIncrement()),
     changeZoom: (level) => dispatch(MapActions.changeZoom(level)),
     changeCenter: (center) => dispatch(MapActions.changeCenter(center)),
     updateRequested: () => dispatch(ClinicActions.updateRequested()),
