@@ -20,7 +20,16 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 export const dateChanged = (state, { datetime }) => {
-  return state.merge({datetime})
+  console.log(state)
+  const prevDatetime = state.datetime
+  const nextDate = new Date(
+    datetime.getFullYear(),
+    datetime.getMonth(),
+    datetime.getDate(),
+    prevDatetime.getHours(),
+    prevDatetime.getMinutes()
+  )
+  return state.merge({datetime: nextDate})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
