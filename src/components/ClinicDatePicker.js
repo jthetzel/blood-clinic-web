@@ -1,12 +1,12 @@
 import React from 'react'
 import DatePicker from 'material-ui/DatePicker'
 
-const ClinicDatePicker = ({ value }) => {
+const ClinicDatePicker = ({ value, onChange }) => {
   return (
     <DatePicker
       autoOk
       value={value}
-      onChange={(callback, date) => console.log(date.toISOString())}
+      onChange={(callback, date) => onChange(date)}
       id={'ClinicDatePicker'}
       />
   )

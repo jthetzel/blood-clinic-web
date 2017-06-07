@@ -7,6 +7,7 @@ import ClinicDrawer from '../components/ClinicDrawer'
 import ClinicModal from '../components/ClinicModal'
 import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
+import DatetimeActions from '../redux/datetimeRedux'
 import fetchClinics from '../api/fetchClinics'
 
 class Map extends Component {
@@ -24,6 +25,7 @@ class Map extends Component {
       changeZoom,
       changeCenter,
       datetime,
+      datetimeChanged,
       selected,
       clinics,
       modalOpen
@@ -55,6 +57,7 @@ class Map extends Component {
           currentRate={currentRate}
           onClick={clinicSelected}
           datetime={datetime}
+          datetimeChanged={datetimeChanged}
           />
         <ClinicModal
           open={modalOpen}
@@ -83,7 +86,8 @@ const mapDispatchToProps = (dispatch) => {
     changeCenter: (center) => dispatch(MapActions.changeCenter(center)),
     updateRequested: () => dispatch(ClinicActions.updateRequested()),
     clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id)),
-    clinicDeselected: () => dispatch(ClinicActions.clinicDeselected())
+    clinicDeselected: () => dispatch(ClinicActions.clinicDeselected()),
+    datetimeChanged: (datetime) => dispatch(DatetimeActions.datetimeChanged(datetime))
   }
 }
 
