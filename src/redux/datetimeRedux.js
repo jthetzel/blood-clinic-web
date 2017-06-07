@@ -4,7 +4,7 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  datetimeChanged: ['datetime']
+  dateChanged: ['datetime']
 })
 
 export const AnnotationsTypes = Types
@@ -19,11 +19,11 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Reducers ------------- */
 
-export const datetimeChanged = (state, { datetime }) => {
+export const dateChanged = (state, { datetime }) => {
   return state.merge({datetime})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.DATETIME_CHANGED]: datetimeChanged
+  [Types.DATE_CHANGED]: dateChanged
 })

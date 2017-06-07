@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import ClinicDatePicker from './ClinicDatePicker'
 
-const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, datetimeChanged }) => {
+const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged }) => {
   return (
     <Drawer
       open
@@ -11,7 +11,7 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, datetimeChanged
       >
       <ClinicDatePicker
         value={datetime}
-        onChange={datetimeChanged}
+        onChange={dateChanged}
         />
       {clinics.map((clinic, index) => {
         const wait = currentRate[clinic.id]

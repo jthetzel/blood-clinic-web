@@ -24,8 +24,8 @@ class Map extends Component {
       currentRate,
       changeZoom,
       changeCenter,
+      dateChanged,
       datetime,
-      datetimeChanged,
       selected,
       clinics,
       modalOpen
@@ -57,7 +57,7 @@ class Map extends Component {
           currentRate={currentRate}
           onClick={clinicSelected}
           datetime={datetime}
-          datetimeChanged={datetimeChanged}
+          dateChanged={dateChanged}
           />
         <ClinicModal
           open={modalOpen}
@@ -87,7 +87,7 @@ const mapDispatchToProps = (dispatch) => {
     updateRequested: () => dispatch(ClinicActions.updateRequested()),
     clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id)),
     clinicDeselected: () => dispatch(ClinicActions.clinicDeselected()),
-    datetimeChanged: (datetime) => dispatch(DatetimeActions.datetimeChanged(datetime))
+    dateChanged: (datetime) => dispatch(DatetimeActions.dateChanged(datetime))
   }
 }
 
