@@ -11,8 +11,9 @@ import fetchClinics from '../api/fetchClinics'
 
 class Map extends Component {
   componentWillMount () {
-    fetchClinics()
     this.props.updateRequested()
+    // fetchClinics() just for development
+    fetchClinics()
   }
 
   render () {
