@@ -6,6 +6,7 @@
     "fetch-ponyfill": "^4.0.0",
     "google-map-react": "^0.24.0",
     "material-ui": "^0.18.1",
+    "moment": "^2.18.1",
     "point-geometry": "^0.1.0",
     "react": "^15.5.4",
     "react-controllables": "^0.6.0",
