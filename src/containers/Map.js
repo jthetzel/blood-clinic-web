@@ -27,8 +27,6 @@ class Map extends Component {
       modalOpen
     } = this.props
 
-    const clinic = clinics.find(clinic => clinic.id === selected)
-
     const clinicMarkers = clinics.map((marker, index) => (
       <ClinicMarker
         key={index}
