@@ -1,14 +1,17 @@
 import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
+import ClinicDatePicker from './ClinicDatePicker'
 
-const ClinicDrawer = ({ clinics, onClick, currentRate }) => {
+const ClinicDrawer = ({ clinics, onClick, currentRate, datetime }) => {
   return (
     <Drawer
       open
       width={'30%'}
       >
-      MetaClinic
+      <ClinicDatePicker
+        value={datetime}
+        />
       {clinics.map((clinic, index) => {
         const wait = currentRate[clinic.id]
         const waitFormatted = (wait)? `${wait} minutes`: 'closed'

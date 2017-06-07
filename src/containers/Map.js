@@ -22,6 +22,7 @@ class Map extends Component {
       currentRate,
       changeZoom,
       changeCenter,
+      datetime,
       selected,
       clinics,
       modalOpen
@@ -52,6 +53,7 @@ class Map extends Component {
           clinics={clinics}
           currentRate={currentRate}
           onClick={clinicSelected}
+          datetime={datetime}
           />
         <ClinicModal
           open={modalOpen}
@@ -69,7 +71,8 @@ const mapStateToProps = (state) => {
     selected: state.clinic.selected,
     clinics: state.clinic.clinics,
     modalOpen: state.clinic.modalOpen,
-    currentRate: state.clinic.currentRate
+    currentRate: state.clinic.currentRate,
+    datetime: state.datetime.datetime
   }
 }
 
