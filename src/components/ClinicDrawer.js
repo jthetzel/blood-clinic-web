@@ -3,6 +3,7 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import ClinicDatePicker from './ClinicDatePicker'
 import ClinicTimePicker from './ClinicTimePicker'
+import LogoBanner from './LogoBanner'
 
 const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, timeChanged }) => {
   return (
@@ -10,6 +11,7 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, ti
       open
       width={'30%'}
       >
+      <LogoBanner />
       <ClinicDatePicker
         value={datetime}
         onChange={dateChanged}
