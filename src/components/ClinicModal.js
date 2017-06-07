@@ -8,7 +8,6 @@ class ClinicModal extends React.Component {
   render () {
     const { open, onRequestClose, selected, clinics } = this.props
     const clinic = clinics.find(clinic => clinic.id === selected)
-    console.log(clinic)
     if (!clinic) {
       return (
         <div />
