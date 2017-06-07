@@ -2,9 +2,9 @@ import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 
 /* ------------- Types and Action Creators ------------- */
-
 const { Types, Creators } = createActions({
-  dateChanged: ['datetime']
+  dateChanged: ['datetime'],
+  timeChanged: ['datetime']
 })
 
 export const DatetimeTypes = Types
@@ -14,13 +14,10 @@ export default Creators
 const date = new Date()
 export const INITIAL_STATE = Immutable({
   datetime: date
-
 })
 
 /* ------------- Reducers ------------- */
-
 export const dateChanged = (state, { datetime }) => {
-  console.log(state)
   const prevDatetime = state.datetime
   const nextDate = new Date(
     datetime.getFullYear(),
@@ -32,7 +29,20 @@ export const dateChanged = (state, { datetime }) => {
   return state.merge({datetime: nextDate})
 }
 
+export const timeChanged = (state, { datetime }) => {
+  const prevDatetime = state.datetime
+  const nextDate = new Date(
+    prevDatetime.getFullYear(),
+    prevDatetime.getMonth(),
+    prevDatetime.getDate(),
+    datetime.getHours(),
+    datetime.getMinutes()
+  )
+  return state.merge({datetime: nextDate})
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.DATE_CHANGED]: dateChanged
+  [Types.TIME_CHANGED]: timeChanged
 })
