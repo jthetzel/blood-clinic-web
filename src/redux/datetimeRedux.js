@@ -30,6 +30,7 @@ export const dateChanged = (state, { datetime }) => {
 }
 
 export const timeChanged = (state, { datetime }) => {
+  console.log(datetime)
   const prevDatetime = state.datetime
   const nextDate = new Date(
     prevDatetime.getFullYear(),

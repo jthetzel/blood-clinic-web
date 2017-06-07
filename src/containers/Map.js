@@ -26,6 +26,7 @@ class Map extends Component {
       dateChanged,
       datetime,
       selected,
+      timeChanged,
       clinics,
       modalOpen
     } = this.props
@@ -57,6 +58,7 @@ class Map extends Component {
           onClick={clinicSelected}
           datetime={datetime}
           dateChanged={dateChanged}
+          timeChanged={timeChanged}
           />
         <ClinicModal
           open={modalOpen}
@@ -86,7 +88,8 @@ const mapDispatchToProps = (dispatch) => {
     updateRequested: () => dispatch(ClinicActions.updateRequested()),
     clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id)),
     clinicDeselected: () => dispatch(ClinicActions.clinicDeselected()),
-    dateChanged: (datetime) => dispatch(DatetimeActions.dateChanged(datetime))
+    dateChanged: (datetime) => dispatch(DatetimeActions.dateChanged(datetime)),
+    timeChanged: (datetime) => dispatch(DatetimeActions.timeChanged(datetime))
   }
 }
 

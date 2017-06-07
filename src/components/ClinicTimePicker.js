@@ -2,6 +2,7 @@ import React from 'react'
 import TimePicker from 'material-ui/TimePicker'
 
 const ClinicTimePicker = ({ value, onChange }) => {
+  console.log(onChange)
   return (
     <TimePicker
       autoOk

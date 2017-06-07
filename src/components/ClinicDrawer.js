@@ -2,8 +2,9 @@ import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import ClinicDatePicker from './ClinicDatePicker'
+import ClinicTimePicker from './ClinicTimePicker'
 
-const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged }) => {
+const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, timeChanged }) => {
   return (
     <Drawer
       open
@@ -12,6 +13,10 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged }) 
       <ClinicDatePicker
         value={datetime}
         onChange={dateChanged}
+        />
+      <ClinicTimePicker
+        value={datetime}
+        onChange={timeChanged}
         />
       {clinics.map((clinic, index) => {
         const wait = currentRate[clinic.id]
