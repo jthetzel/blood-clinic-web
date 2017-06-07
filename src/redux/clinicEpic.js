@@ -38,6 +38,38 @@ export const dateChangedEpic = (action$, store) =>
             .map(response => updateFulfilled(response.response))
            )
 
+// dateIncrementedEpic
+const DATE_INCREMENTED = DatetimeTypes.DATE_INCREMENTED
+export const dateIncrementedEpic = (action$, store) =>
+  action$.ofType(DATE_INCREMENTED)
+  .mergeMap(action =>
+            ajax({
+              method: 'POST',
+              url: apiHost,
+              body: JSON.stringify({date: store.getState().datetime.datetime}),
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            })
+            .map(response => updateFulfilled(response.response))
+           )
+
+// dateIncrementedEpic
+const DATE_DECREMENTED = DatetimeTypes.DATE_DECREMENTED
+export const dateDecrementedEpic = (action$, store) =>
+  action$.ofType(DATE_DECREMENTED)
+  .mergeMap(action =>
+            ajax({
+              method: 'POST',
+              url: apiHost,
+              body: JSON.stringify({date: store.getState().datetime.datetime}),
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            })
+            .map(response => updateFulfilled(response.response))
+           )
+
 // timeChangedEpic
 const TIME_CHANGED = DatetimeTypes.TIME_CHANGED
 export const timeChangedEpic = (action$, store) =>

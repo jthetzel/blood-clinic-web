@@ -1,10 +1,17 @@
 import { combineReducers } from 'redux'
 import { combineEpics } from 'redux-observable'
-import { updateClinicEpic, dateChangedEpic, timeChangedEpic } from './clinicEpic'
+import { updateClinicEpic,
+         dateChangedEpic,
+         dateIncrementedEpic,
+         dateDecrementedEpic,
+         timeChangedEpic
+       } from './clinicEpic'
 
 export const rootEpic = combineEpics(
   updateClinicEpic,
   dateChangedEpic,
+  dateIncrementedEpic,
+  dateDecrementedEpic,
   timeChangedEpic
 )
 
