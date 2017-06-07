@@ -1,5 +1,6 @@
-import 'rxjs'
 import { ajax } from 'rxjs/observable/dom/ajax'
+import 'rxjs/add/operator/mergeMap'
+import 'rxjs/add/operator/map'
 import { ClinicTypes } from './clinicRedux'
 import { DatetimeTypes } from './datetimeRedux'
 import { apiHost } from '../Constants'
