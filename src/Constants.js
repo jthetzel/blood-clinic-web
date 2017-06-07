@@ -18,7 +18,7 @@ export const clinics = [
     phone: '(709) 752-3658'
   },
   {
-    name: 'Sr. Clare\'s Mercy',
+    name: 'St. Clare\'s Mercy',
     id: 'sc',
     lat: 47.5574587,
     lng: -52.7215271,
