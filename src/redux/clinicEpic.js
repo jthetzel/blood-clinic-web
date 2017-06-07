@@ -37,3 +37,19 @@ export const dateChangedEpic = (action$, store) =>
             })
             .map(response => updateFulfilled(response.response))
            )
+
+// timeChangedEpic
+const TIME_CHANGED = DatetimeTypes.TIME_CHANGED
+export const timeChangedEpic = (action$, store) =>
+  action$.ofType(TIME_CHANGED)
+  .mergeMap(action =>
+            ajax({
+              method: 'POST',
+              url: apiHost,
+              body: JSON.stringify({date: store.getState().datetime.datetime}),
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            })
+            .map(response => updateFulfilled(response.response))
+           )

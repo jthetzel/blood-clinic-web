@@ -43,6 +43,6 @@ export const timeChanged = (state, { datetime }) => {
 
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.DATE_CHANGED]: dateChanged
+  [Types.DATE_CHANGED]: dateChanged,
   [Types.TIME_CHANGED]: timeChanged
 })
