@@ -7,7 +7,7 @@ const { Types, Creators } = createActions({
   dateChanged: ['datetime']
 })
 
-export const AnnotationsTypes = Types
+export const DatetimeTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */

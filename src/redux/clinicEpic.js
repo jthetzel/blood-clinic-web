@@ -1,6 +1,7 @@
 import 'rxjs'
 import { ajax } from 'rxjs/observable/dom/ajax'
 import { ClinicTypes } from './clinicRedux'
+import { DatetimeTypes } from './datetimeRedux'
 import { apiHost } from '../Constants'
 
 // updateClinicEpic
@@ -20,3 +21,19 @@ export const updateClinicEpic = (action$, store) =>
                 })
                 .map(response => updateFulfilled(response.response))
                )
+
+// dateChangedEpic
+const DATE_CHANGED = DatetimeTypes.DATE_CHANGED
+export const dateChangedEpic = (action$, store) =>
+  action$.ofType(DATE_CHANGED)
+  .mergeMap(action =>
+            ajax({
+              method: 'POST',
+              url: apiHost,
+              body: JSON.stringify({date: store.getState().datetime.datetime}),
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            })
+            .map(response => updateFulfilled(response.response))
+           )
