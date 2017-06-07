@@ -10,11 +10,6 @@ import ClinicActions from '../redux/clinicRedux'
 import fetchClinics from '../api/fetchClinics'
 
 class Map extends Component {
-  static defaultProps = {
-    center: {lat: 47.5615, lng: -52.7126},
-    zoom: 13
-  }
-
   componentWillMount () {
     fetchClinics()
     this.props.updateRequested()
