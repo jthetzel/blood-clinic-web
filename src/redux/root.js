@@ -4,11 +4,7 @@ import { updateClinicEpic
        } from './clinicEpic'
 
 export const rootEpic = combineEpics(
-  updateClinicEpic,
-  // dateChangedEpic,
-  // dateIncrementedEpic,
-  // dateDecrementedEpic,
-  // timeChangedEpic
+  updateClinicEpic
 )
 
 export const rootReducer = combineReducers({
