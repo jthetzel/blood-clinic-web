@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import metaclinic from '../assets/metaclinic.svg'
 
 const style = {

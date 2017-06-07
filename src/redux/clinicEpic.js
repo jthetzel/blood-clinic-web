@@ -27,7 +27,7 @@ export const updateClinicEpic = (action$, store) =>
               url: apiHost,
               body: JSON.stringify({date: store.getState().datetime.datetime}),
               headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
               }
             })
             .map(response => updateFulfilled(response.response))
