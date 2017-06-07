@@ -14,7 +14,7 @@ const DayLineChart = ({ dailyRate, selected }) => {
       data.push({hour: index, clinic: 'hs', rate: Number(value)})
     }
   })
-  console.log(selected)
+
   return (
     <LineChart width={400} height={400} data={data}>
       <Line
