@@ -1,5 +1,5 @@
 import { ajax } from 'rxjs/observable/dom/ajax'
-import 'rxjs/add/operator/mergeMap'
+import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/map'
 import { ClinicTypes } from './clinicRedux'
 import { DatetimeTypes } from './datetimeRedux'
@@ -21,7 +21,7 @@ export const updateClinicEpic = (action$, store) =>
     DATE_DECREMENTED,
     TIME_CHANGED
   )
-  .mergeMap(action =>
+  .switchMap(action =>
             ajax({
               method: 'POST',
               url: apiHost,
