@@ -14,7 +14,7 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  center: {lat: 47.5615, lng: -52.7126},
+  center: {lat: 47.56, lng: -52.74},
   zoom: 13
 })
 
