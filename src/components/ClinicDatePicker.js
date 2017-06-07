@@ -2,7 +2,7 @@ import React from 'react'
 import DatePicker from 'material-ui/DatePicker'
 import moment from 'moment'
 
-const ClinicDatePicker = ({ value, onChange }) => {
+const ClinicDatePicker = ({ value, onChange, inputStyle }) => {
   return (
     <DatePicker
       autoOk
@@ -10,6 +10,7 @@ const ClinicDatePicker = ({ value, onChange }) => {
       onChange={(callback, date) => onChange(date)}
       id={'ClinicDatePicker'}
       formatDate={(date) => moment(date).format('dddd, LL')}
+      inputStyle={inputStyle}
       />
   )
 }
