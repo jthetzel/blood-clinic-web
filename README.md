@@ -1,4 +1,5 @@
-![MetaClinic](https://raw.githubusercontent.com/jthetzel/blood-clinic-web/develop/src/assets/metaclinic.svg "MetaClinic")
+![MetaClinic](https://cdn.rawgit.com/jthetzel/blood-clinic-web/develop/src/assets/metaclinic.svg "MetaClinic")
+
 
 MetaClinic's blood-clinic-web front end was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
