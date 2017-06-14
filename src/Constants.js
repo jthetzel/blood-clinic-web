@@ -38,3 +38,5 @@ export const clinics = [
 ]
 
 export const apiHost = 'https://bloodclinicserver.herokuapp.com/apiv2'
+
+export const iconHref = 'https://github.com/jthetzel/blood-clinic-web'
