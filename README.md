@@ -8,7 +8,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 # Run:
 To run this app
 
-Clone:
+Clone the repository:
 
 ```
 git clone git@github.com:jthetzel/blood-clinic-web.git
