@@ -5,7 +5,7 @@ MetaClinic's blood-clinic-web front end was bootstrapped with [Create React App]
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-#Run:
+# Run:
   To run this app
     - Clone: `git clone git@github.com:jthetzel/blood-clinic-web.git`
     - `cd blood-clnic-web`
