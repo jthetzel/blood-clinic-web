@@ -1,4 +1,4 @@
-![alt text](https://cdn.rawgit.com/jthetzel/blood-clinic-web/develop/src/assets/metaclinic.svg "Logo Title Text 1")
+![alt text](https://cdn.rawgit.com/jthetzel/blood-clinic-web/develop/src/assets/metaclinic.svg =100x "Logo Title Text 1")
 
 MetaClinic's blood-clinic-web front end was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
