@@ -43,7 +43,6 @@ class Map extends Component {
     ))
 
     return (
-      // height 10000ox is a hack: must fix
       <div style={{height: '100%'}}>
         <GoogleMapReact
           bootstrapURLKeys={{key: 'AIzaSyBR2VYaIyFFuQr_rcBY5Jc4dm5E9lOSIjY'}}

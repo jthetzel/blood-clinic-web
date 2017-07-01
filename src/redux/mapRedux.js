@@ -22,7 +22,6 @@ export const INITIAL_STATE = Immutable({
 
 export const changeCenter = (state, { center }) => {
   return state.merge({center})
-
 }
 
 export const changeZoom = (state, { level }) => {

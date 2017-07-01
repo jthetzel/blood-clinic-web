@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'
 import LogoIcon from './LogoIcon'
+import { iconHref } from '../Constants'
 
 const style = {
   position: 'absolute',
@@ -8,7 +9,9 @@ const style = {
 
 const LogoBanner = () => (
   <div>
-    <LogoIcon />
+    <a href={iconHref}>
+      <LogoIcon />
+    </a>
     <span style={style}>
       MetaClinic
     </span>
