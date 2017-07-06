@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "now-start": "serve build/"
+    "now-start": "serve build/",
+    "deploy-firebase": "react-scripts build && firebase deploy"
   }
 }
