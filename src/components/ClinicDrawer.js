@@ -9,6 +9,9 @@ const styles = {
   inputStyle: {
     paddingLeft: '10px'
   },
+  drawer: {
+    minWidth: '180px'
+  },
   menuItem: {
     display: 'flex',
     flexFlow: 'wrap',
@@ -24,6 +27,7 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, ti
     <Drawer
       open
       width={'30%'}
+      containerStyle={styles.drawer}
       >
       <LogoBanner />
       <ClinicDatePicker
