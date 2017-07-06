@@ -7,11 +7,19 @@ import { AreaChart,
          CartesianGrid,
          ResponsiveContainer,
          Tooltip } from 'recharts'
+import ClinicClosed from '../components/ClinicClosed'
 
-const DayChart = ({ dailyRate, selected }) => {
+const DayChart = ({ dailyRate, selected, datetime }) => {
+  console.log(datetime)
   if (!selected || !(dailyRate[selected])) {
     return (
       <div />
+    )
+  }
+  // Display closed for weekends
+  if (datetime.getDay() % 6 === 0) {
+    return (
+      <ClinicClosed />
     )
   }
   let data = []
@@ -40,7 +48,8 @@ const mapStateToProps = (state) => {
   return {
     selected: state.clinic.selected,
     dailyRate: state.clinic.dailyRate,
-    clinics: state.clinic.clinics
+    clinics: state.clinic.clinics,
+    datetime: state.datetime.datetime
   }
 }
 
