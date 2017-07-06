@@ -30,7 +30,10 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, ti
         />
       {clinics.map((clinic, index) => {
         const wait = currentRate[clinic.id]
-        const waitFormatted = (wait) ? `${wait} minutes` : 'closed'
+        let waitFormatted = (wait) ? `${wait} minutes` : 'closed'
+        // Temporary workaround for data incorrectly reporting wait
+        // times when clinic is closed on weekends
+        waitFormatted = (datetime.getDay() % 6 === 0) ? 'closed' : waitFormatted
         return (
           <MenuItem
             key={index}
