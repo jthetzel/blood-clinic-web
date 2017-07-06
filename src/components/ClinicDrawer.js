@@ -26,7 +26,7 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, ti
   return (
     <Drawer
       open
-      width={'30%'}
+      width={'20%'}
       containerStyle={styles.drawer}
       >
       <LogoBanner />
