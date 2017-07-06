@@ -8,6 +8,14 @@ import LogoBanner from './LogoBanner'
 const styles = {
   inputStyle: {
     paddingLeft: '10px'
+  },
+  menuItem: {
+    display: 'flex',
+    flexFlow: 'wrap',
+    justifyContent: 'space-between'
+  },
+  secondaryText: {
+    order: 1
   }
 }
 
@@ -39,7 +47,8 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, ti
             key={index}
             onTouchTap={() => onClick(clinic.id)}
             primaryText={clinic.name}
-            secondaryText={waitFormatted}
+            innerDivStyle={styles.menuItem}
+            secondaryText={<span style={styles.secondaryText}>{waitFormatted}</span>}
             />
         )
       })}
