@@ -1,3 +1,4 @@
+import Rx from 'rxjs'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/map'
 import { PositionTypes } from './positionRedux'
@@ -9,7 +10,7 @@ const positionReceived = position => ({ type: POSITION_RECEIVED, position })
 
 const getPosition = function (options) {
   return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    navigator.geolocation.getCurrentPosition(resolve, reject, options)
   })
 }
 
@@ -18,5 +19,7 @@ export const updatePositionEpic = (action$, store) =>
     POSITION_REQUESTED
   )
   .switchMap(action =>
-             getPosition().then((position) => positionReceived(position))
+             Rx.Observable.fromPromise(
+               getPosition())
+             .map((position) => positionReceived(position))
             )
