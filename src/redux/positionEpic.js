@@ -2,6 +2,7 @@ import Rx from 'rxjs'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/mergeMap'
 import 'rxjs/add/operator/map'
+import { getFirebase } from 'react-redux-firebase'
 import { PositionTypes } from './positionRedux'
 import { MapTypes } from './mapRedux'
 
@@ -26,6 +27,10 @@ export const updatePositionEpic = (action$, store) =>
   .switchMap(action =>
              Rx.Observable.fromPromise(
                getPosition())
+             .do((position) => {
+               const { coords: { latitude, longitude }, timestamp } = position
+               getFirebase().push('/positions', {latitude, longitude, timestamp})
+             })
              .mergeMap((position) => ([
                positionReceived(position),
                changeCenter(position)
