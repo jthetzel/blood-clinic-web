@@ -8,7 +8,7 @@ const { Types, Creators } = createActions({
   changeZoom: ['level']
 })
 
-export const AnnotationsTypes = Types
+export const MapTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
@@ -21,6 +21,7 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 export const changeCenter = (state, { center }) => {
+  console.log(center)
   return state.merge({center})
 }
 

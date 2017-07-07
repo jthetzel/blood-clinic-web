@@ -1,12 +1,17 @@
 import Rx from 'rxjs'
 import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/mergeMap'
 import 'rxjs/add/operator/map'
 import { PositionTypes } from './positionRedux'
+import { MapTypes } from './mapRedux'
 
 const POSITION_REQUESTED = PositionTypes.POSITION_REQUESTED
 const POSITION_RECEIVED = PositionTypes.POSITION_RECEIVED
+const CHANGE_CENTER = MapTypes.CHANGE_CENTER
 
 const positionReceived = position => ({ type: POSITION_RECEIVED, position })
+const changeCenter = ({coords: { latitude, longitude }}) =>
+      ({ type: CHANGE_CENTER, center: {lat: latitude, lng: longitude} })
 
 const getPosition = function (options) {
   return new Promise(function (resolve, reject) {
@@ -21,5 +26,8 @@ export const updatePositionEpic = (action$, store) =>
   .switchMap(action =>
              Rx.Observable.fromPromise(
                getPosition())
-             .map((position) => positionReceived(position))
+             .mergeMap((position) => ([
+               positionReceived(position),
+               changeCenter(position)
+             ]))
             )
