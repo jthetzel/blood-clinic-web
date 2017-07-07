@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-function renderText(child, x, y, rotate, stroke, key) {
+function renderText (child, x, y, rotate, stroke, key) {
   if (child && child.content) {
     return (<text
       key={key}
       x={x}
       y={y}
       transform={`rotate(${rotate})`}
-      textAnchor="middle"
+      textAnchor='middle'
       stroke={stroke}
       {...child.props}>
       {child.content}
-    </text>);
+    </text>)
   }
 
   return (<text
@@ -19,16 +19,16 @@ function renderText(child, x, y, rotate, stroke, key) {
     x={x}
     y={y}
     transform={`rotate(${rotate})`}
-    textAnchor="middle"
-    stroke={stroke}>{child}</text>);
+    textAnchor='middle'
+    stroke={stroke}>{child}</text>)
 }
 
-export default function AxisLabel({ axisType, x, y, width, height, stroke, children }) {
-  const isVert = axisType === 'yAxis';
-  const cx = isVert ? x : x + (width / 2);
-  const cy = isVert ? (height / 2) + y : y + height + 20;
-  const rot = isVert ? `270 ${cx} ${cy}` : 0;
-  const lineHeight = 20;
+export default function AxisLabel ({ axisType, x, y, width, height, stroke, children }) {
+  const isVert = axisType === 'yAxis'
+  const cx = isVert ? x : x + (width / 2)
+  const cy = isVert ? (height / 2) + y : y + height + 20
+  const rot = isVert ? `270 ${cx} ${cy}` : 0
+  const lineHeight = 20
 
   if (children.length > 1 && children.map) {
     return (<g>
@@ -41,8 +41,8 @@ export default function AxisLabel({ axisType, x, y, width, height, stroke, child
           stroke,
           index)
       )}
-    </g>);
+    </g>)
   }
 
-  return renderText(children, cx, cy, rot, stroke);
+  return renderText(children, cx, cy, rot, stroke)
 }
