@@ -8,6 +8,7 @@ import { AreaChart,
          ResponsiveContainer,
          Tooltip } from 'recharts'
 import ClinicClosed from '../components/ClinicClosed'
+import AxisLabel from './AxisLabel'
 
 const DayChart = ({ dailyRate, selected, datetime }) => {
   if (!selected || !(dailyRate[selected])) {
@@ -31,8 +32,16 @@ const DayChart = ({ dailyRate, selected, datetime }) => {
     <ResponsiveContainer minHeight={300}>
       <AreaChart width={600} height={400} data={data}
         margin={{top: 10, right: 30, left: 0, bottom: 0}}>
-        <XAxis dataKey='hour' />
-        <YAxis />
+        <XAxis
+          dataKey='hour'
+          label='Hour'
+          />
+        <YAxis
+          label={
+            <AxisLabel axisType='yAxis' x={25} y={125} width={0} height={0}>
+                Wait in minutes
+            </AxisLabel>}
+          />
         <CartesianGrid strokeDasharray='3 3' />
         <Tooltip />
         <Area type='monotone' dataKey='wait' stroke='#8884d8' fill='#8884d8'
