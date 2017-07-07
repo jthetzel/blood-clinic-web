@@ -4,16 +4,15 @@ import GoogleMapReact from 'google-map-react'
 import ClinicMarker from '../components/ClinicMarker'
 import ClinicDrawer from '../components/ClinicDrawer'
 import ClinicModal from '../components/ClinicModal'
+import LocationButton from '../components/LocationButton'
 import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
 import DatetimeActions from '../redux/datetimeRedux'
-import fetchClinics from '../api/fetchClinics'
+import PositionActions from '../redux/positionRedux'
 
 class Map extends Component {
   componentWillMount () {
     this.props.updateRequested()
-    // fetchClinics() just for development
-    fetchClinics()
   }
 
   render () {
@@ -25,6 +24,7 @@ class Map extends Component {
       changeCenter,
       dateChanged,
       datetime,
+      positionRequested,
       selected,
       timeChanged,
       clinics,
@@ -51,6 +51,10 @@ class Map extends Component {
           >
           {clinicMarkers}
         </GoogleMapReact>
+        <LocationButton
+          tooltip='My location'
+          onClick={positionRequested}
+          />
         <ClinicDrawer
           clinics={clinics}
           currentRate={currentRate}
@@ -88,7 +92,8 @@ const mapDispatchToProps = (dispatch) => {
     clinicSelected: (id) => dispatch(ClinicActions.clinicSelected(id)),
     clinicDeselected: () => dispatch(ClinicActions.clinicDeselected()),
     dateChanged: (datetime) => dispatch(DatetimeActions.dateChanged(datetime)),
-    timeChanged: (datetime) => dispatch(DatetimeActions.timeChanged(datetime))
+    timeChanged: (datetime) => dispatch(DatetimeActions.timeChanged(datetime)),
+    positionRequested: () => dispatch(PositionActions.positionRequested())
   }
 }
 
