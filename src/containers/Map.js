@@ -20,12 +20,9 @@ class Map extends Component {
       clinicSelected,
       clinicDeselected,
       currentRate,
-      changeZoom,
-      changeCenter,
       dateChanged,
       datetime,
       positionRequested,
-      selected,
       timeChanged,
       clinics,
       modalOpen
