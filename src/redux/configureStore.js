@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { rootEpic, rootReducer } from './root'
+import { reactReduxFirebase } from 'react-redux-firebase'
+import { firebaseConfig, config } from '../config/firebase'
 
 const epicMiddleware = createEpicMiddleware(rootEpic)
 
@@ -10,7 +12,8 @@ export default function configureStore () {
   const store = createStore(
     rootReducer,
     composeEnhancers(
-      applyMiddleware(epicMiddleware)
+      applyMiddleware(epicMiddleware),
+      reactReduxFirebase(firebaseConfig, config)
     )
   )
 
