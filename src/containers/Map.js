@@ -9,13 +9,10 @@ import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
 import DatetimeActions from '../redux/datetimeRedux'
 import PositionActions from '../redux/positionRedux'
-import fetchClinics from '../api/fetchClinics'
 
 class Map extends Component {
   componentWillMount () {
     this.props.updateRequested()
-    // fetchClinics() just for development
-    fetchClinics()
   }
 
   render () {
