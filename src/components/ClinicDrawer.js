@@ -6,7 +6,7 @@ import ClinicTimePicker from './ClinicTimePicker'
 import LogoBanner from './LogoBanner'
 
 const styles = {
-  inputStyle: {
+  input: {
     paddingLeft: '10px'
   },
   drawer: {
@@ -26,19 +26,19 @@ const ClinicDrawer = ({ clinics, onClick, currentRate, datetime, dateChanged, ti
   return (
     <Drawer
       open
-      width={'30%'}
+      width={'20%'}
       containerStyle={styles.drawer}
       >
       <LogoBanner />
       <ClinicDatePicker
         value={datetime}
         onChange={dateChanged}
-        inputStyle={styles.inputStyle}
+        inputStyle={styles.input}
         />
       <ClinicTimePicker
         value={datetime}
         onChange={timeChanged}
-        inputStyle={styles.inputStyle}
+        inputStyle={styles.input}
         />
       {clinics.map((clinic, index) => {
         const wait = currentRate[clinic.id]
