@@ -10,7 +10,6 @@ import { AreaChart,
 import ClinicClosed from '../components/ClinicClosed'
 
 const DayChart = ({ dailyRate, selected, datetime }) => {
-  console.log(datetime)
   if (!selected || !(dailyRate[selected])) {
     return (
       <div />
