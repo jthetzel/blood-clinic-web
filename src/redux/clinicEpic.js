@@ -5,14 +5,15 @@ import { ClinicTypes } from './clinicRedux'
 import { DatetimeTypes } from './datetimeRedux'
 import { apiHost } from '../Constants'
 
-// updateClinicEpic
 const UPDATE_REQUESTED = ClinicTypes.UPDATE_REQUESTED
 const UPDATE_FULFILLED = ClinicTypes.UPDATE_COMPLETED
 const DATE_CHANGED = DatetimeTypes.DATE_CHANGED
 const DATE_INCREMENTED = DatetimeTypes.DATE_INCREMENTED
 const DATE_DECREMENTED = DatetimeTypes.DATE_DECREMENTED
 const TIME_CHANGED = DatetimeTypes.TIME_CHANGED
-export const updateFulfilled = payload => ({ type: UPDATE_FULFILLED, payload })
+
+const updateFulfilled = payload => ({ type: UPDATE_FULFILLED, payload })
+
 export const updateClinicEpic = (action$, store) =>
   action$.ofType(
     UPDATE_REQUESTED,

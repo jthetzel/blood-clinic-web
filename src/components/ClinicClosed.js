@@ -1,6 +1,4 @@
 import React from 'react'
-import IconButton from 'material-ui/IconButton'
-import ClinicIcon from 'material-ui/svg-icons/maps/local-hospital'
 import Paper from 'material-ui/Paper'
 
 const style = {

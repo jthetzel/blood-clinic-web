@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "array.prototype.find": "^2.0.4",
     "fetch-ponyfill": "^4.0.0",
     "google-map-react": "^0.24.0",
     "material-ui": "^0.18.1",
@@ -10,6 +11,7 @@
     "point-geometry": "^0.1.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-ga": "^2.2.0",
     "react-redux": "^5.0.5",
     "react-redux-firebase": "^1.4.3",
     "react-tap-event-plugin": "^2.0.1",
