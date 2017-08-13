@@ -40,3 +40,12 @@ export const clinics = [
 export const apiHost = 'https://bloodclinicserver.herokuapp.com/apiv2'
 
 export const iconHref = 'https://github.com/jthetzel/blood-clinic-web'
+
+export const palette = {
+	sky:    "#2e9cca",
+	white:  "#ffffff",
+	navy:   "#25274d",
+	slate:  "#464866",
+	aegean: "#29648a",
+	grey:   "#aaabb8"
+}

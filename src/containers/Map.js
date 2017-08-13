@@ -5,6 +5,7 @@ import ClinicMarker from '../components/ClinicMarker'
 import ClinicDrawer from '../components/ClinicDrawer'
 import ClinicModal from '../components/ClinicModal'
 import LocationButton from '../components/LocationButton'
+import Footer from '../components/Footer'
 import MapActions from '../redux/mapRedux'
 import ClinicActions from '../redux/clinicRedux'
 import DatetimeActions from '../redux/datetimeRedux'
@@ -64,6 +65,7 @@ class Map extends Component {
           open={modalOpen}
           onRequestClose={clinicDeselected}
           />
+          <Footer />
       </div>
     )
   }

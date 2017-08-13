@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import ReactGA from 'react-ga'
 import Map from './containers/Map'
+import Footer from './components/Footer'
 
 ReactGA.initialize('UA-102217061-1')
 ReactGA.pageview('/')
@@ -19,6 +20,7 @@ class App extends Component {
       <Provider store={store}>
         <MuiThemeProvider>
           <Map />
+          {/* <Footer /> */}
         </MuiThemeProvider>
       </Provider>
     )
